@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POC Video</title>
+</head>
+
+<body>
+  <div style="margin-left: 24px; margin-top: 20px;">
+    <div style="display: flex; align-items: center;">
+      <button (click)="leaveCall()" type="button" class="btn"
+        style="color: #0f1012 ; background-color: rgb(130, 154, 169);">
+        Leave
+      </button>
+      <div style="padding-left: 20px;" *ngIf="!callingStatus">
+        Calling...
+      </div>
+    </div>
+    <div class="container-fluid" style="padding-left: 0px;">
+      <h3 style="text-align: left; margin-top: 20px; font-weight: bolder; padding-bottom: 15px;">Visitor</h3>
+      <div style="height: 250px; width: 250px; border: 1px solid; box-shadow: 0 5px 10px 0 #B0C1D9;" id="local-player"
+        class="player"></div>
+      <!-- <p>{{ userName }}</p> -->
+      <h3 style="padding-top: 50px; padding-bottom: 20px; font-weight: bolder;">{{userName}}</h3>
+      <div style="height: 250px; width: 250px; border: 1px solid; box-shadow: 0 5px 10px 0 #B0C1D9; " id="remote-player"
+        class="player">
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>

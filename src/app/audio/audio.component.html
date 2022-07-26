@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>POC Audio</title>
+</head>
+
+<body>
+  <div style="margin-left: 24px; margin-top: 20px">
+    <div style="display: flex; align-items: center">
+      <button (click)="leaveCall()" type="button" class="btn"
+        style="color: #0f1012 ; background-color: rgb(130, 154, 169);">
+        Leave
+      </button>
+    </div>
+    <div class="container-fluid" style="text-align: center ; margin-top: 200px">
+      <i class="fa-regular fa-user" style="font-size: 19rem; color: #183153; box-shadow: 0 5px 10px 0 #B0C1D9;"></i>
+      <h3 style="margin-top: 20px; font-weight: bolder">Visitor</h3>
+      <div *ngIf="!callingStatus">Calling...</div>
+      <div style="height: 200px; width: 200px" id="local-player" class="player"></div>
+      <p>{{ userName }}</p>
+    </div>
+  </div>
+</body>
+
+</html>

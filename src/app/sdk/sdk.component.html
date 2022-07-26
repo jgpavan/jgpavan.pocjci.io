@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div class="navbar navbar-default" style="background-color: #6b82a0;"></div>
+  <div class="text">Welcome to Johnson Controls Gurgaon</div>
+
+  <div class="container-fluid">
+    <div class="search-hero" style="padding-bottom: 20px ;">
+      <input class="form-control" type="text" (keyup)="searchUser()" name="search" [(ngModel)]="searchText"
+        autocomplete="off" placeholder="&#61442;  Search by username" style="font-family:Arial, FontAwesome">
+    </div>
+    <table class="table">
+      <tr class="user" *ngFor="let user of userCopy">
+        <td style="display: inline-flex;">
+          <i class="fa-regular fa-user" style="font-size: 2.4rem; color: #183153;"></i>
+          <p style="padding-left: 1rem; padding-top: 0.5rem;">{{user.username }}</p>
+        </td>
+        <td style="text-align: right;">
+          <i [routerLink]="['/audio', user.id]" class="fa-solid fa-square-phone"
+            style="font-size: 2.6rem; color: #183153;"></i>
+        </td>
+        <td style="text-align: center ;">
+          <i [routerLink]="['/video', user.id, user.username]" class="fa-solid fa-video"
+            style="font-size: 2.6rem; color: #183153;"></i>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+
+</html>

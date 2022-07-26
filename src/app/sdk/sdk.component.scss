@@ -1,0 +1,50 @@
+.avatar {
+  vertical-align: middle;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+}
+
+.text {
+  font-weight: 500;
+  font-size: xx-large;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  text-align: -webkit-center;
+}
+
+.search {
+  overflow: auto;
+  padding-bottom: 15px;
+  border: none;
+
+
+  input {
+    width: 100%;
+  }
+}
+
+.search input[type="text"]:focus {
+  outline: 0;
+}
+
+@media only screen and (min-width : 150px) and (max-width : 780px) {
+  .search {
+    margin: 0 auto;
+  }
+}
+
+.user {
+  border-bottom: solid 1px lightgray;
+
+  td {
+    padding-top: 10px;
+    padding-bottom: 5px;
+  }
+}
+
+.form-control {
+  padding-left: 2.375rem;
+  box-shadow: 0 5px 10px 0 #B0C1D9;
+}
