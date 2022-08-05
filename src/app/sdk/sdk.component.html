@@ -9,30 +9,40 @@
 </head>
 
 <body>
-  <div class="navbar navbar-default" style="background-color: #6b82a0;"></div>
-  <div class="text">Welcome to Johnson Controls Gurgaon</div>
+  <div class="navbar navbar-default" style="background-color: #00679A;">
+    <div class="text" style="font-style: normal;">Welcome guest!</div>
+    <div class="search-hero" style="padding-bottom: 20px ; padding-right: 15px; padding-left: 15px;">
+      <input class="form-control" type="text" (keyup)="searchUser()" name="search" [(ngModel)]="searchText"
+        autocomplete="off" placeholder="&#61442;  Resident's name"
+        style="font-family:Arial, FontAwesome;font-style: normal; color: #73767D; letter-spacing: 0.125px;">
+    </div>
+  </div>
+
 
   <div class="container-fluid">
-    <div class="search-hero" style="padding-bottom: 20px ;">
-      <input class="form-control" type="text" (keyup)="searchUser()" name="search" [(ngModel)]="searchText"
-        autocomplete="off" placeholder="&#61442;  Search by username" style="font-family:Arial, FontAwesome">
+    <p style="font-size: unset;padding-left: 10px; font-style: normal;">Voice/video call a resident to request access
+    </p>
+    <div class="card">
+      <div class="card-body" style="background: #F0F3F6;box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.1);border-radius: 4px;"
+        *ngFor="let tenant of userCopy">
+        <blockquote class="conatiner-fluid"
+          style="background-color: #F0F3F6 ; display: -webkit-box;border: none; border-radius: 5px;">
+          <div class="row" style="display:contents ;">
+
+            <i class="fa-regular fa-user" style="font-size: 2.4rem; color: #183153; padding-top: 10px;"></i>
+            <p style="padding-left: 1rem; padding-top: 1rem;">{{tenant.TenantName}}</p>
+
+            <div class="container-fluid"></div>
+            <i [routerLink]="['/audio', tenant.TenantPin]" class="fa-solid fa-square-phone"
+              style="font-size: 2.6rem; color: #183153;padding-top: 10px;padding-right: 15px;"></i>
+            <i [routerLink]="['/video', tenant.TenantPin, tenant.TenantName]" class="fa-solid fa-video"
+              style="font-size: 2.6rem; color: #183153;padding-top: 10px;padding-right: 15px;"></i>
+          </div>
+        </blockquote>
+
+      </div>
     </div>
-    <table class="table">
-      <tr class="user" *ngFor="let user of userCopy">
-        <td style="display: inline-flex;">
-          <i class="fa-regular fa-user" style="font-size: 2.4rem; color: #183153;"></i>
-          <p style="padding-left: 1rem; padding-top: 0.5rem;">{{user.username }}</p>
-        </td>
-        <td style="text-align: right;">
-          <i [routerLink]="['/audio', user.id]" class="fa-solid fa-square-phone"
-            style="font-size: 2.6rem; color: #183153;"></i>
-        </td>
-        <td style="text-align: center ;">
-          <i [routerLink]="['/video', user.id, user.username]" class="fa-solid fa-video"
-            style="font-size: 2.6rem; color: #183153;"></i>
-        </td>
-      </tr>
-    </table>
+
   </div>
 </body>
 
