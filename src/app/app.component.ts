@@ -55,6 +55,10 @@ export class AppComponent {
     }, error => {
       console.log("error ", error);
     });
+
+    const encrypted = "NTQ5JjA4LzAxLzIwMjIxMjozMToyNQ==";
+    let decrypted = atob(encrypted);
+    console.log(decrypted);
   }
 }
 

@@ -41,8 +41,13 @@ export class AudioComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.paramMap.get('id');
+    this.userName = this.route.snapshot.paramMap.get('username');
     console.log('routeid', this.id)
+    console.log('username', this.userName);
     this.startCall();
+    this.route.params.subscribe(value => {
+      console.log("value ", value);
+    })
 
     this.message.getStatus.subscribe(async (status: any) => {
       this.callingStatus = status;

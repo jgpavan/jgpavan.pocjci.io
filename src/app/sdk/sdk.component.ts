@@ -1,8 +1,6 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { TENANT_ID } from '@angular/fire/compat/auth';
 import { AngularFireDatabase, AngularFireList } from '@angular/fire/compat/database';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
-import { filter } from 'rxjs';
 interface TenantList {
   TenantName: any;
   id: string;

@@ -11,7 +11,7 @@ const routes: Routes = [
     component: SdkComponent,
   },
   { path: 'video/:id/:username', component: VideoComponent },
-  { path: 'audio/:id', component: AudioComponent }
+  { path: 'audio/:id/:username', component: AudioComponent }
 ];
 
 @NgModule({

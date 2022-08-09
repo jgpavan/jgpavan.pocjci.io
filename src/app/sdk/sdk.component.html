@@ -33,7 +33,7 @@
             <p style="padding-left: 1rem; padding-top: 1rem;">{{tenant.TenantName}}</p>
 
             <div class="container-fluid"></div>
-            <i [routerLink]="['/audio', tenant.TenantPin]" class="fa-solid fa-square-phone"
+            <i [routerLink]="['/audio', tenant.TenantPin, tenant.TenantName]" class="fa-solid fa-square-phone"
               style="font-size: 2.6rem; color: #183153;padding-top: 10px;padding-right: 15px;"></i>
             <i [routerLink]="['/video', tenant.TenantPin, tenant.TenantName]" class="fa-solid fa-video"
               style="font-size: 2.6rem; color: #183153;padding-top: 10px;padding-right: 15px;"></i>
