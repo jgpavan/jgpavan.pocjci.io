@@ -21,6 +21,13 @@ export class SdkComponent implements OnInit {
   constructor(private db: AngularFireDatabase, private route: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    const encrypted = "MjE0NjYzMTY2MDA0MzQ0Ng==";
+    let decrypted = atob(encrypted);
+    console.log(decrypted);
+    var ts = Math.round((new Date()).getTime() / 1000);
+    console.log(ts);
+
+
     this.db.list('TenantList').snapshotChanges().subscribe(data => {
       this.getUsers = [];
       data.forEach(item => {
@@ -34,8 +41,24 @@ export class SdkComponent implements OnInit {
     });
   }
 
+
+
   filterByID() {
-    const userCopy: any = this.getUsers.find((item => item.id === "214663"));
+    let decryptedURL = "https://jgpavan.github.io/jgpavan.pocjci.io/id=549&stmp=1660043446";
+    const urlValue = decryptedURL.toString().replace(/\//g, '&');
+    const finalURL = new URLSearchParams(urlValue);
+    const id = finalURL.get('id');
+    const stamp = finalURL.get('stmp');
+    console.log(stamp);
+    let unix_timestamp = +stamp;
+    var date = new Date(unix_timestamp * 1000);
+    var hours = date.getHours();
+    var minutes = "0" + date.getMinutes();
+    var seconds = "0" + date.getSeconds();
+    var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    console.log(formattedTime);
+    console.log(id);
+    const userCopy: any = this.getUsers.find((item => item.id === id));
     if (userCopy?.id && userCopy?.ListFBTenantIdModel) {
       if (typeof userCopy.ListFBTenantIdModel === "object") {
         userCopy.ListFBTenantIdModel = Object.values(userCopy.ListFBTenantIdModel);
@@ -47,6 +70,15 @@ export class SdkComponent implements OnInit {
       this.getUsers = this.userCopy;
     }
     console.log(this.getUsers);
+    if (stamp) {
+      this.timeoutBystamp();
+    }
+  }
+
+  timeoutBystamp() {
+    setTimeout(function () {
+      alert("please scan again");
+    }, 3000);
   }
 
 

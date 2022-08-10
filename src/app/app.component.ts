@@ -12,7 +12,7 @@ const IV_ARRAY_SIZE = 16;
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
+  date: string;
   endPoint = {
     url: "https://demo.kantech.com:8801/smartservice/Login",
     path_variables: "username=#username&password=#password&encrypted=#encrypted&SourceID=#SourceID&DateFormat=#DateFormat&TimeFormat=#TimeFormat&LocalDateTime=#LocalDateTime&ConnectedProgram=#ConnectedProgram",
@@ -35,6 +35,8 @@ export class AppComponent {
   ) { }
 
   ngOnInit(): void {
+    const getUrl = window.location.href;
+    console.log(getUrl);
     this.onLaunch();
   }
 
@@ -55,13 +57,8 @@ export class AppComponent {
     }, error => {
       console.log("error ", error);
     });
-
-    const encrypted = "NTQ5JjA4LzAxLzIwMjIxMjozMToyNQ==";
-    let decrypted = atob(encrypted);
-    console.log(decrypted);
   }
 }
-
 
 
 
