@@ -37,27 +37,27 @@ export class AppComponent {
   ngOnInit(): void {
     const getUrl = window.location.href;
     console.log(getUrl);
-    this.onLaunch();
+    // this.onLaunch();
   }
 
-  onLaunch() {
-    let url;
-    if (this.loginDetail) {
-      const dateFormat = encodeURIComponent(this.datePipe.transform(new Date(), "yyyy-MM-dd"));
-      const timeFormat = encodeURIComponent(this.datePipe.transform(new Date(), "HH:mm:ss"));
-      this.loginDetail.LocalDateTime = dateFormat + "+" + timeFormat;
-      url = this.endPoint.url + "?" + this.endPoint.path_variables;
-      for (const [key, value] of Object.entries(this.loginDetail)) {
-        url = url.replace("#" + key, value);
-      }
-    }
-    console.log("url ", url)
-    this.http.get<any>(url).subscribe(data => {
-      console.log("data ", data);
-    }, error => {
-      console.log("error ", error);
-    });
-  }
+  // onLaunch() {
+  //   let url;
+  //   if (this.loginDetail) {
+  //     const dateFormat = encodeURIComponent(this.datePipe.transform(new Date(), "yyyy-MM-dd"));
+  //     const timeFormat = encodeURIComponent(this.datePipe.transform(new Date(), "HH:mm:ss"));
+  //     this.loginDetail.LocalDateTime = dateFormat + "+" + timeFormat;
+  //     url = this.endPoint.url + "?" + this.endPoint.path_variables;
+  //     for (const [key, value] of Object.entries(this.loginDetail)) {
+  //       url = url.replace("#" + key, value);
+  //     }
+  //   }
+  //   console.log("url ", url)
+  //   this.http.get<any>(url).subscribe(data => {
+  //     console.log("data ", data);
+  //   }, error => {
+  //     console.log("error ", error);
+  //   });
+  // }
 }
 
 
