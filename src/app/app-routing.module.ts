@@ -10,6 +10,10 @@ const routes: Routes = [
     path: 'user',
     component: SdkComponent,
   },
+  {
+    path: 'user/:id/:stmp',
+    component: SdkComponent,
+  },
   { path: 'video/:id/:username', component: VideoComponent },
   { path: 'audio/:id/:username', component: AudioComponent }
 ];

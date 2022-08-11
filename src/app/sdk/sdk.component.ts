@@ -17,7 +17,10 @@ export class SdkComponent implements OnInit {
   getUsers: TenantList[];
   userCopy: any = [];
   searchText;
-
+  userName = '';
+  roomCode: any;
+  id: any;
+  stamp: any;
   constructor(private db: AngularFireDatabase, private route: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -26,8 +29,10 @@ export class SdkComponent implements OnInit {
     console.log(decrypted);
     var ts = Math.round((new Date()).getTime() / 1000);
     console.log(ts);
-
-
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.stamp = this.activatedRoute.snapshot.paramMap.get('stmp');
+    console.log(this.id);
+    console.log(this.stamp);
     this.db.list('TenantList').snapshotChanges().subscribe(data => {
       this.getUsers = [];
       data.forEach(item => {
@@ -44,21 +49,21 @@ export class SdkComponent implements OnInit {
 
 
   filterByID() {
-    let decryptedURL = window.location.href;
-    const urlValue = decryptedURL.toString().replace(/\//g, '&');
-    const finalURL = new URLSearchParams(urlValue);
-    const id = finalURL.get('id');
-    const stamp = finalURL.get('stmp');
-    console.log(stamp);
-    let unix_timestamp = +stamp;
+    // let decryptedURL = window.location.href;
+    // const urlValue = decryptedURL.toString().replace(/\//g, '&');
+    // const finalURL = new URLSearchParams(urlValue);
+    // const id = finalURL.get('id');
+    // const stamp = finalURL.get('stmp');
+    // console.log(stamp);
+    let unix_timestamp = 17777;
     var date = new Date(unix_timestamp * 1000);
     var hours = date.getHours();
     var minutes = "0" + date.getMinutes();
     var seconds = "0" + date.getSeconds();
     var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
     console.log(formattedTime);
-    console.log(id);
-    const userCopy: any = this.getUsers.find((item => item.id === id));
+    // console.log(id);
+    const userCopy: any = this.getUsers.find((item => item.id === this.id));
     if (userCopy?.id && userCopy?.ListFBTenantIdModel) {
       if (typeof userCopy.ListFBTenantIdModel === "object") {
         userCopy.ListFBTenantIdModel = Object.values(userCopy.ListFBTenantIdModel);
