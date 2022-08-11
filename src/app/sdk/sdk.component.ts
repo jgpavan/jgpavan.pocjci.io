@@ -44,7 +44,7 @@ export class SdkComponent implements OnInit {
 
 
   filterByID() {
-    let decryptedURL = "https://jgpavan.github.io/jgpavan.pocjci.io/id=549&stmp=1660043446";
+    let decryptedURL = window.location.href;
     const urlValue = decryptedURL.toString().replace(/\//g, '&');
     const finalURL = new URLSearchParams(urlValue);
     const id = finalURL.get('id');
