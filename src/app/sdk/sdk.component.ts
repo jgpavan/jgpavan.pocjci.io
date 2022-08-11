@@ -70,15 +70,6 @@ export class SdkComponent implements OnInit {
       this.getUsers = this.userCopy;
     }
     console.log(this.getUsers);
-    if (stamp) {
-      this.timeoutBystamp();
-    }
-  }
-
-  timeoutBystamp() {
-    setTimeout(function () {
-      alert("please scan again");
-    }, 3000);
   }
 
 
