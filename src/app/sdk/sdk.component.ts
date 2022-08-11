@@ -55,13 +55,13 @@ export class SdkComponent implements OnInit {
     // const id = finalURL.get('id');
     // const stamp = finalURL.get('stmp');
     // console.log(stamp);
-    let unix_timestamp = 17777;
-    var date = new Date(unix_timestamp * 1000);
-    var hours = date.getHours();
-    var minutes = "0" + date.getMinutes();
-    var seconds = "0" + date.getSeconds();
-    var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
-    console.log(formattedTime);
+    // let unix_timestamp = 17777;
+    // var date = new Date(unix_timestamp * 1000);
+    // var hours = date.getHours();
+    // var minutes = "0" + date.getMinutes();
+    // var seconds = "0" + date.getSeconds();
+    // var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
+    // console.log(formattedTime);
     // console.log(id);
     const userCopy: any = this.getUsers.find((item => item.id === this.id));
     if (userCopy?.id && userCopy?.ListFBTenantIdModel) {
