@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <title>Poc</title>
 
-  <base href="/pocjci/.">
+  <base href="/pocjci/">
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -27,15 +27,15 @@
 
 <body>
   <app-root></app-root>
-<!-- Github Pages hack to allow SPA refresh without receiving 404. -->
+  <!-- Github Pages hack to allow SPA refresh without receiving 404. -->
 
   <script>
 
-    (function() {
+    (function () {
 
       // Retrieve the URL the user was trying to access when receiving the 404.
 
-      varredirect =sessionStorage.redirect;
+      varredirect = sessionStorage.redirect;
 
       // Remove the URL from sessionStorage.
 
@@ -43,11 +43,11 @@
 
       // Check if we actually need to redirect.
 
-      if(redirect && redirect != location.href){
+      if (redirect && redirect != location.href) {
 
         // We need to redirect to the URL the user was trying to access.
 
-        history.replaceState(null,null, redirect);
+        history.replaceState(null, null, redirect);
 
       }
 
@@ -55,7 +55,7 @@
 
   </script>
 
-<!-- /Github Pages hack. -->
+  <!-- /Github Pages hack. -->
 
 
   <script src="runtime.f9af9025ca131fa9.js" type="module"></script>
