@@ -44,7 +44,7 @@ export class SdkComponent implements OnInit {
       this.filterByID();
       // console.log(this.getUsers);
     });
-    window.history.pushState("object or string", "Title", "/list");
+    window.history.pushState("object or string", "Title", "/QR Code Entry System");
   }
 
 
