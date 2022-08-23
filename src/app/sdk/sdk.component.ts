@@ -31,6 +31,9 @@ export class SdkComponent implements OnInit {
     // console.log(ts);
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.stamp = this.activatedRoute.snapshot.paramMap.get('stmp');
+    if (this.id) {
+      localStorage.setItem('id', this.id);
+    }
     console.log(this.id);
     console.log(this.stamp);
     this.db.list('TenantList').snapshotChanges().subscribe(data => {
@@ -44,7 +47,7 @@ export class SdkComponent implements OnInit {
       this.filterByID();
       // console.log(this.getUsers);
     });
-    window.history.pushState("object or string", "Title", "/QR Code Entry System");
+    // window.history.pushState("object or string", "Title", "/QRCodeEntrySystem");
   }
 
 
@@ -64,17 +67,21 @@ export class SdkComponent implements OnInit {
     // var formattedTime = hours + ':' + minutes.substr(-2) + ':' + seconds.substr(-2);
     // console.log(formattedTime);
     // console.log(id);
-    const userCopy: any = this.getUsers.find((item => item.id === this.id));
-    if (userCopy?.id && userCopy?.ListFBTenantIdModel) {
-      if (typeof userCopy.ListFBTenantIdModel === "object") {
-        userCopy.ListFBTenantIdModel = Object.values(userCopy.ListFBTenantIdModel);
+    if (localStorage.getItem('id')) {
+      const localId = localStorage.getItem('id');
+      console.log(localId, "local");
+      const userCopy: any = this.getUsers.find((item => item.id === localStorage.getItem('id')));
+      if (userCopy?.id && userCopy?.ListFBTenantIdModel) {
+        if (typeof userCopy.ListFBTenantIdModel === "object") {
+          userCopy.ListFBTenantIdModel = Object.values(userCopy.ListFBTenantIdModel);
+        }
+        this.userCopy = userCopy.ListFBTenantIdModel;
+        const sortedArray = this.userCopy;
+        sortedArray.sort((a: any, b: any) => a?.['TenantName'].localeCompare(b?.['TenantName']));
+        console.log(sortedArray);
+        this.getUsers = this.userCopy;
       }
-      this.userCopy = userCopy.ListFBTenantIdModel;
-      const sortedArray = this.userCopy;
-      sortedArray.sort((a: any, b: any) => a?.['TenantName'].localeCompare(b?.['TenantName']));
-      console.log(sortedArray);
-      this.getUsers = this.userCopy;
-    }
+    };
     // console.log(this.getUsers);
   }
 
