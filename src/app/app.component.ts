@@ -1,6 +1,7 @@
 import { DatePipe } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 const MIN_KEY_SIZE = 16;
 const MAX_KEY_SIZE = 24;
@@ -32,6 +33,7 @@ export class AppComponent {
   constructor(
     private datePipe: DatePipe,
     private http: HttpClient,
+    private route: Router
   ) { }
 
   ngOnInit(): void {

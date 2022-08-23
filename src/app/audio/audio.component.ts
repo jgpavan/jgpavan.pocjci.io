@@ -51,6 +51,7 @@ export class AudioComponent implements OnInit {
 
     this.message.getStatus.subscribe(async (status: any) => {
       this.callingStatus = status;
+      console.log(this.callingStatus);
     });
 
     this.stream.getMediaStatus.subscribe(async (status: any) => {

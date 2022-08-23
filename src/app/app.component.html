@@ -1,1 +1,9 @@
 <router-outlet></router-outlet>
+<script>
+    var myTrigger = function (ready) {
+        // poll for the variable myLib, when that's ready, we're ready!
+        FreshUrl.waitsFor(function () { return window.myLib; }).then(ready)
+    };
+    var _freshenUrlAfter = ['googleAnalytics', myTrigger];
+</script>
+<script src="//fast.wistia.net/labs/fresh-url/v1.js" async></script>

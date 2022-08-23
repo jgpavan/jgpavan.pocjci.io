@@ -5,7 +5,7 @@ import { SdkComponent } from './sdk/sdk.component';
 import { VideoComponent } from './video/video.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'user/:id/:stmp', pathMatch: 'full' },
+  { path: '', redirectTo: 'user', pathMatch: 'full' },
   {
     path: 'user',
     component: SdkComponent,

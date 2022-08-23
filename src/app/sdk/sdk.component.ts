@@ -24,11 +24,11 @@ export class SdkComponent implements OnInit {
   constructor(private db: AngularFireDatabase, private route: Router, private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    const encrypted = "MjE0NjYzMTY2MDA0MzQ0Ng==";
-    let decrypted = atob(encrypted);
-    console.log(decrypted);
-    var ts = Math.round((new Date()).getTime() / 1000);
-    console.log(ts);
+    // const encrypted = "MjE0NjYzMTY2MDA0MzQ0Ng==";
+    // let decrypted = atob(encrypted);
+    // console.log(decrypted);
+    // var ts = Math.round((new Date()).getTime() / 1000);
+    // console.log(ts);
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
     this.stamp = this.activatedRoute.snapshot.paramMap.get('stmp');
     console.log(this.id);
@@ -42,8 +42,9 @@ export class SdkComponent implements OnInit {
         this.userCopy.push(a as TenantList);
       });
       this.filterByID();
-      console.log(this.getUsers);
+      // console.log(this.getUsers);
     });
+    window.history.pushState("object or string", "Title", "/list");
   }
 
 
@@ -74,17 +75,17 @@ export class SdkComponent implements OnInit {
       console.log(sortedArray);
       this.getUsers = this.userCopy;
     }
-    console.log(this.getUsers);
+    // console.log(this.getUsers);
   }
 
 
   searchUser() {
-    console.log("serch ", this.searchText);
+    // console.log("serch ", this.searchText);
     if (!this.searchText) {
       this.userCopy = this.getUsers;
       return;
     }
     this.userCopy = this.getUsers.filter(item => item.TenantName.toLowerCase().indexOf(this.searchText.toLowerCase()) !== -1);
-    console.log(this.userCopy);
+    // console.log(this.userCopy);
   }
 }

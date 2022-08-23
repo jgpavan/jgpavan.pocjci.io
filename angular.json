@@ -26,10 +26,6 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "inlineStyleLanguage": "scss",
-            "assets": [
-              "src/favicon.ico",
-              "src/assets"
-            ],
             "styles": [
               "src/styles.scss",
               "node_modules/ngx-toastr/toastr.css"
@@ -38,6 +34,10 @@
           },
           "configurations": {
             "production": {
+              "assets": [
+                "src/favicon.ico",
+                "src/assets"
+              ],
               "budgets": [
                 {
                   "type": "initial",
@@ -59,6 +59,11 @@
               "outputHashing": "all"
             },
             "development": {
+              "assets": [
+                "src/favicon.ico",
+                "src/assets",
+                "src/web.config"
+              ],
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
